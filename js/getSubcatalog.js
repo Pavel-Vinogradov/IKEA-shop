@@ -1,7 +1,5 @@
-' use strict';
-
-const getSubcatalog = () => {
-  const subCatalog = `    <div class="subcatalog">
+ const getSubcatalog = () => {
+     const subCatalogHTML = `    <div class="subcatalog">
   <button type="button" class="btn btn-return catalog-btn" aria-expanded="true" title="Закрыть меню"
       aria-label="Закрыть меню">
       <svg focusable="false" class="svg-icon  hnf-svg-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -27,7 +25,7 @@ const getSubcatalog = () => {
   </ul>
 </div>`;
 
-  document.body.insertAdjacentHTML('beforeend', subCatalog);
-};
+     document.body.insertAdjacentHTML('beforeend', subCatalogHTML);
+ };
 
-getSubcatalog();
+ export default getSubcatalog;

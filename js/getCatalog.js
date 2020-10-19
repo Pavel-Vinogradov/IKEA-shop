@@ -1,8 +1,5 @@
- ' use strict';
-
- const getCatalog = () => {
-
-   const catalog = `<div class="catalog">
+  const getCatalog = () => {
+      const catalogHTML = `<div class="catalog">
    <button type="button" class="btn btn-close catalog-btn" id="hnf-menu-close-btn" aria-expanded="true"
        title="Закрыть меню" aria-label="Закрыть меню">
        <svg focusable="false" class="svg-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -22,10 +19,7 @@
    </ul>
 </div>`;
 
-   document.body.insertAdjacentHTML('beforeend', catalog);
+      document.body.insertAdjacentHTML('beforeend', catalogHTML);
 
- };
-
-
-
- getCatalog();
+  };
+  export default getCatalog;

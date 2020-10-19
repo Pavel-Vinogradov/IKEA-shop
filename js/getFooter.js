@@ -1,7 +1,5 @@
-' use strict';
-
-const getFooter = () => {
-  const footer = `    <footer>
+ const getFooter = () => {
+     const footerHTML = `    <footer>
   <div class="container">
       <div class="footer">
           <div class="footer-catalog">
@@ -40,9 +38,9 @@ const getFooter = () => {
 
 </footer>`;
 
-  document.body.querySelector('main').insertAdjacentHTML('afterend', footer);
+     document.body.querySelector('main').insertAdjacentHTML('afterend', footerHTML);
 
-};
+ };
 
 
-getFooter();
+ export default getFooter;
