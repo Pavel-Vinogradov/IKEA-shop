@@ -9,7 +9,7 @@ export const getData = {
   get(pocess) {
     fetch(this.url).then((response) => response.json())
       .then((pocess));
-    console.log(pocess);
+
   },
   wishList(list, callback) {
     this.get((data) => {
@@ -21,7 +21,9 @@ export const getData = {
     this.get((data) => {
       const result = data.find((item) => item.id === value);
       callback(result);
+
     });
+
   },
   cart(list, callback) {
     this.get((data) => {
@@ -31,7 +33,7 @@ export const getData = {
   },
   category(prop, value, callback) {
     this.get((data) => {
-      const result = data.filter((item) => item[PARAM[prop]] === value.toLowerCase());
+      const result = data.filter((item) => item[PARAM[prop]].toLowerCase() === value.toLowerCase());
       callback(result);
     });
   },
@@ -48,6 +50,26 @@ export const getData = {
       callback(result);
     });
   },
-  catalog(callback) {},
-  subCatalog(callback) {},
+  catalog(callback) {
+    this.get((data) => {
+      const result = data.reduce((arr, item) => {
+        if (!arr.includes(item.category)) {
+          arr.push(item.category);
+        }
+        return arr;
+      }, []);
+      callback(result);
+    });
+  },
+  subCatalog(value, callback) {
+    this.get((data) => {
+      const result = data.filter(item => item.category === value).reduce((arr, item) => {
+        if (!arr.includes(item.subcategory)) {
+          arr.push(item.subcategory);
+        }
+        return arr;
+      }, []);
+      callback(result);
+    });
+  },
 };

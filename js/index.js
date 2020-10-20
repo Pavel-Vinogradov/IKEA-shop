@@ -1,22 +1,13 @@
-' use strict';
+import header from './inc/header.js';
+import footer from './inc/footer.js';
+import catalog from './inc/catalog.js';
+import goods from './goods.js';
+import oneProduct from './card.js';
+import cart from './cart.js';
 
-import {
-  catalogBlock
-} from './catalog.js';
-import getHeader from './getHeader.js';
-import getFooter from './getFooter.js';
-import getCatalog from './getCatalog.js';
-import getSubcatalog from './getSubcatalog.js';
-import {
-  loadData
-} from './loadData.js';
-
-
-getHeader();
-getFooter();
-getCatalog();
-getSubcatalog();
-loadData();
-
-
-catalogBlock();
+header();
+footer();
+catalog();
+goods();
+oneProduct();
+cart();

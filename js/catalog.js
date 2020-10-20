@@ -1,4 +1,11 @@
+import {
+  getData
+} from "./getData.js";
+import getSubCatalog from "./getSubcatalog.js";
+
 export const catalogBlock = () => {
+
+  const updateSubCatalog = getSubCatalog();
   const btnBurger = document.querySelector('.btn-burger');
   const catalog = document.querySelector('.catalog');
   const subCatalog = document.querySelector('.subcatalog');
@@ -23,15 +30,17 @@ export const catalogBlock = () => {
     closeSubMenu();
   };
 
-  const openSubMenu = (event) => {
+  const heandlerCatalog = (event) => {
     event.preventDefault();
-    let element = event.target;
 
     const itemList = event.target.closest('.catalog-list__item');
 
     if (itemList) {
       subCatalogHeader.innerHTML = itemList.innerHTML;
       subCatalog.classList.add('subopen');
+    }
+    if (event.target.closest('.btn-close')) {
+      closeMenu();
     }
   };
 
@@ -41,8 +50,9 @@ export const catalogBlock = () => {
   btnBurger.addEventListener('click', openMenu);
   btnClose.addEventListener('click', closeMenu);
   overlay.addEventListener('click', closeMenu);
-  catalogList.addEventListener('click', openSubMenu);
+  catalogList.addEventListener('click', heandlerCatalog);
   btnReturn.addEventListener('click', closeSubMenu);
+
   document.addEventListener('keydown', (event) => {
     if (event.code === 'Escape') {
       closeMenu();
